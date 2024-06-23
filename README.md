@@ -3,14 +3,9 @@
 InternCrow is a simple C program that allows users to search for job domains and find suitable job roles within those domains.
 
 
-8888888b. 888 d8888 888
-888 Y88b 888 d88888 888
-888 888 888 d88P888 888
-888 d88P 8888b. 888d888 .d8888b888 888 d88P 888 88888b.
-8888888P" "88b 888P" d88P" 888 .88P d88P 888 888 "88b
-888 .d888888 888 888 888888K d88P 888 888 888
-888 888 888 888 Y88b. 888 "88b d8888888888 888 888
-888 "Y888888 888 "Y8888P888 888 d88P 888 888 888
+![image](https://github.com/progprnv/Interncrow/assets/145828371/1a385da4-ebb9-4822-8490-a253abf57e76)
+
+
 
 
 ## Features
