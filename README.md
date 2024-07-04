@@ -3,88 +3,24 @@
 ![image](https://github.com/progprnv/Interncrow/assets/145828371/1a385da4-ebb9-4822-8490-a253abf57e76)
 
 
-InternCrow is a simple C program that allows users to search for job domains and find suitable job roles within those domains.
+A HTML webpage that lists main domains in Computer Science Engineering (CSE). When a user clicks on a domain button, it displays a list of related sub-job domains.
+
+## WHy this tool?
+
+In today's competitive job market, rising unemployment and a lack of skilled workers in the industry are pressing concerns. Many students are overwhelmed by the numerous career options and unsure of which path to follow. InternCrow is designed to address this issue by providing a clear, organized overview of main domains and sub-domains within Computer Science Engineering (CSE).
+
+By presenting detailed information about various career paths, InternCrow helps students understand the opportunities and requirements of each domain. It guides them in making informed decisions about their education and career planning. Consequently, it helps align students' skills and interests with industry needs, ultimately fostering a more skilled and employable workforce. InternCrow empowers students to navigate their career choices confidently, reducing confusion and enhancing their readiness for the job market.
 
 
 ## Features
 
-- Interactive selection of job domains
-- Displays job roles for the selected domain
-- Percentile scores for each job domain
+- **Main Domains**: The webpage lists various main domains in CSE such as Software Development, Data Science, Cyber Security, and AI & ML.
+- **Sub-Domains**: Each main domain button reveals a list of related sub-job domains when clicked.
+- **Toggle Functionality**: Sub-domain lists are hidden by default and are shown/hidden by clicking the corresponding main domain button.
 
-## Job Domains and Roles
+## How to Use
 
-1. Software Engineering
-   - Developer
-   - Tester
-   - DevOps Engineer
-   - System Architect
-
-2. Data Science
-   - Data Analyst
-   - Data Scientist
-   - Machine Learning Engineer
-   - Data Engineer
-
-3. Cybersecurity
-   - Security Analyst
-   - Penetration Tester
-   - Security Architect
-   - Security Engineer
-
-4. Digital Marketing
-   - SEO Specialist
-   - Content Marketer
-   - Social Media Manager
-   - Email Marketer
-
-5. Human Resources
-   - Recruiter
-   - HR Manager
-   - Talent Acquisition Specialist
-   - HR Coordinator
-
-## Percentile Scores
-
-- Software Engineering: 90%
-- Data Science: 85%
-- Cybersecurity: 80%
-- Digital Marketing: 70%
-- Human Resources: 65%
-
-## Installation and Usage
-
-### Prerequisites
-
-- GCC compiler
-
-### Compilation
-
-    ```bash
-      git clone https://github.com/yourusername/interncrow.git
-      cd interncrow
-      gcc -o interncrow interncrow.c
-
-Example:
-$ ./interncrow
-Select a job domain to search for:
-1. Software Engineering (Percentile Score: 90%)
-2. Data Science (Percentile Score: 85%)
-3. Cybersecurity (Percentile Score: 80%)
-4. Digital Marketing (Percentile Score: 70%)
-5. Human Resources (Percentile Score: 65%)
-Enter the number corresponding to the job domain: 2
-
-You selected: Data Science
-Percentile Score: 85%
-Available Roles:
- - Data Analyst
- - Data Scientist
- - Machine Learning Engineer
- - Data Engineer
-
-      Looking for updgrades & collab from other coders...!
-
-
-
+1. Open the `index.html` file in a web browser.
+2. Click on any main domain button to view its sub-domains.
+3. Click the button again to hide the sub-domains.
       
