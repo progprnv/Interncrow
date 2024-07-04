@@ -5,6 +5,7 @@
 #define MAX_DOMAIN_LENGTH 50
 #define MAX_ROLE_LENGTH 50
 
+
 typedef struct {
     char domain[MAX_DOMAIN_LENGTH];
     char roles[MAX_JOBS][MAX_ROLE_LENGTH];
