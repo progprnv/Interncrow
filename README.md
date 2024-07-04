@@ -5,7 +5,7 @@
 
 A HTML webpage that lists main domains in Computer Science Engineering (CSE). When a user clicks on a domain button, it displays a list of related sub-job domains.
 
-## WHy this tool?
+## WHY this tool?
 
 In today's competitive job market, rising unemployment and a lack of skilled workers in the industry are pressing concerns. Many students are overwhelmed by the numerous career options and unsure of which path to follow. InternCrow is designed to address this issue by providing a clear, organized overview of main domains and sub-domains within Computer Science Engineering (CSE).
 
