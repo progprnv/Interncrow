@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE Domains</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .domain-btn {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .domain-btn:hover {
+            background-color: #45a049;
+        }
+        .sub-domains {
+            display: none;
+            margin-left: 20px;
+        }
+        .sub-domain {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Computer Science Engineering Domains</h1>
+    <button class="domain-btn" onclick="toggleSubDomains('software-dev')">Software Development</button>
+    <div id="software-dev" class="sub-domains">
+        <div class="sub-domain">Frontend Developer</div>
+        <div class="sub-domain">Backend Developer</div>
+        <div class="sub-domain">Full Stack Developer</div>
+    </div>
+
+    <button class="domain-btn" onclick="toggleSubDomains('data-science')">Data Science</button>
+    <div id="data-science" class="sub-domains">
+        <div class="sub-domain">Data Analyst</div>
+        <div class="sub-domain">Data Engineer</div>
+        <div class="sub-domain">Machine Learning Engineer</div>
+    </div>
+
+    <button class="domain-btn" onclick="toggleSubDomains('cyber-security')">Cyber Security</button>
+    <div id="cyber-security" class="sub-domains">
+        <div class="sub-domain">Penetration Tester</div>
+        <div class="sub-domain">Security Analyst</div>
+        <div class="sub-domain">Incident Responder</div>
+    </div>
+
+    <button class="domain-btn" onclick="toggleSubDomains('ai-ml')">Artificial Intelligence & Machine Learning</button>
+    <div id="ai-ml" class="sub-domains">
+        <div class="sub-domain">AI Researcher</div>
+        <div class="sub-domain">ML Engineer</div>
+        <div class="sub-domain">NLP Engineer</div>
+    </div>
+
+    <script>
+        function toggleSubDomains(id) {
+            var subDomains = document.getElementById(id);
+            if (subDomains.style.display === "none" || subDomains.style.display === "") {
+                subDomains.style.display = "block";
+            } else {
+                subDomains.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
