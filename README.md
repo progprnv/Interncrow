@@ -12,7 +12,7 @@ In today's competitive job market, rising unemployment and a lack of skilled wor
 By presenting detailed information about various career paths, InternCrow helps students understand the opportunities and requirements of each domain. It guides them in making informed decisions about their education and career planning. Consequently, it helps align students' skills and interests with industry needs, ultimately fostering a more skilled and employable workforce. InternCrow empowers students to navigate their career choices confidently, reducing confusion and enhancing their readiness for the job market.
 
 
-## Features
+## Features 
 
 - **Main Domains**: The webpage lists various main domains in CSE such as Software Development, Data Science, Cyber Security, and AI & ML.
 - **Sub-Domains**: Each main domain button reveals a list of related sub-job domains when clicked.
