@@ -23,5 +23,6 @@ By presenting detailed information about various career paths, InternCrow helps 
 1. Open the `index.html` file in a web browser.
 2. Click on any main domain button to view its sub-domains.
 3. Click the button again to hide the sub-domains.
-4. This will show you
-      
+
+
+MEMBERS: Pranav Jayan, Roshan Subhash
