@@ -1,364 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intencrow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
+            font-family: 'Fira Code', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: flex-start;
+            position: relative;
+        }
+        .content {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 40%;
+            transform: translateY(-40%);
         }
         h1 {
             text-align: center;
             margin-bottom: 30px;
             color: #333;
+            font-family: 'Fira Code', monospace; /* Kali Linux terminal-like font */
+            font-size: 36px; /* Example font size */
+            font-weight: bold; /* Example font weight */
         }
-        .domain {
-            margin-bottom: 20px;
-        }
-        .domain h2 {
-            background-color: #4CAF50;
+        .domain-btn {
+            background-color: black;
             color: white;
-            padding: 10px;
-            margin: 0;
+            padding: 10px 20px;
+            margin: 10px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.2), inset -2px -2px 5px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            font-family: 'Fira Code', monospace; /* Kali Linux terminal-like font */
+            font-size: 18px; /* Example font size */
         }
-        .domain h2:hover {
-            background-color: #45a049;
+        .domain-btn:hover {
+            background-color: #333;
         }
         .sub-domains {
             display: none;
             padding-left: 20px;
+            width: 100%;
+            max-width: 300px;
         }
         .sub-domain {
             margin-bottom: 10px;
-            border-left: 2px solid #4CAF50;
+            border-left: 2px solid black;
+            border-radius: 10px;
             padding-left: 10px;
             animation: slide-up 0.5s ease;
+            font-family: 'Fira Code', monospace; /* Kali Linux terminal-like font */
         }
         @keyframes slide-up {
             from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-        .domain-desc {
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
     </style>
 </head>
 <body>
-    <h1>Hello World {This is Interncrow here} </h1>
+    <div class="content">
+        <h1>Hello World {This is Interncrow here Testing}</h1>
 
-    <!-- JavaScript for Text-to-Speech -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Function to speak "Welcome to InternCrow"
-            function speakWelcomeMessage() {
-                const message = new SpeechSynthesisUtterance("Welcome to InternCrow");
-                window.speechSynthesis.speak(message);
+                <script>
+
+            // Function to toggle the visibility of sub-domains
+            function toggleSubDomains(domainId) {
+                const subDomainDiv = document.getElementById(domainId);
+                if (subDomainDiv.style.display === "none" || subDomainDiv.style.display === "") {
+                    subDomainDiv.style.display = "block";
+                } else {
+                    subDomainDiv.style.display = "none";
+                }
             }
+        </script>
 
-            // Call the function to speak the message
-            speakWelcomeMessage();
-        });
-    </script>
+        <!-- Adding buttons for domains -->
+        <button class="domain-btn" onclick="toggleSubDomains('software-dev')">Software Development</button>
+        <div id="software-dev" class="sub-domains">
+            <div class="sub-domain">Frontend Developer</div>
+            <div class="sub-domain">Backend Developer</div>
+            <div class="sub-domain">Full Stack Developer</div>
+            <div class="sub-domain">Mobile Developer</div>
+            <div class="sub-domain">DevOps Engineer</div>
+            <div class="sub-domain">Software Tester</div>
+        </div>
 
-<!-- adding buttons and subdomains-->
+        <button class="domain-btn" onclick="toggleSubDomains('data-science')">Data Science</button>
+        <div id="data-science" class="sub-domains">
+            <div class="sub-domain">Data Analyst</div>
+            <div class="sub-domain">Data Engineer</div>
+            <div class="sub-domain">Machine Learning Engineer</div>
+            <div class="sub-domain">Data Scientist</div>
+            <div class="sub-domain">Data Architect</div>
+        </div>
+
+        <button class="domain-btn" onclick="toggleSubDomains('web-development')">Web Development</button>
+        <div id="web-development" class="sub-domains">
+            <div class="sub-domain">Frontend Developer</div>
+            <div class="sub-domain">Backend Developer</div>
+            <div class="sub-domain">Full Stack Developer</div>
+            <div class="sub-domain">Web Designer</div>
+            <div class="sub-domain">UI/UX Designer</div>
+        </div>
+
+        <button class="domain-btn" onclick="toggleSubDomains('cyber-security')">Cyber Security</button>
+        <div id="cyber-security" class="sub-domains">
+            <div class="sub-domain">Penetration Tester</div>
+            <div class="sub-domain">Security Analyst</div>
+            <div class="sub-domain">Incident Responder</div>
+            <div class="sub-domain">Cryptographer</div>
+            <div class="sub-domain">Security Architect</div>
+        </div>
+
+        <button class="domain-btn" onclick="toggleSubDomains('ai-ml')">Artificial Intelligence & Machine Learning</button>
+        <div id="ai-ml" class="sub-domains">
+            <div class="sub-domain">AI Researcher</div>
+            <div class="sub-domain">ML Engineer</div>
+            <div class="sub-domain">Robotics Engineer</div>
+            <div class="sub-domain">Deep Learning Engineer</div>
+             <div class="sub-domain">Data Scientist</div>
+        </div>
+
     
-    <button class="domain-btn" onclick="toggleSubDomains('software-dev')">Software Development</button>
-    <div id="software-dev" class="sub-domains">
-        <div class="sub-domain">Frontend Developer</div>
-        <div class="sub-domain">Backend Developer</div>
-        <div class="sub-domain">Full Stack Developer</div>
-        <div class="sub-domain">Mobile Developer</div>
-        <div class="sub-domain">DevOps Engineer</div>
-        <div class="sub-domain">Software Tester</div>
-        <div class="sub-domain">Embedded Systems Developer</div>
-        <div class="sub-domain">Game Developer</div>
-        <div class="sub-domain">Desktop Application Developer</div>
-        <div class="sub-domain">Release Manager</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('data-science')">Data Science</button>
-    <div id="data-science" class="sub-domains">
-        <div class="sub-domain">Data Analyst</div>
-        <div class="sub-domain">Data Engineer</div>
-        <div class="sub-domain">Machine Learning Engineer</div>
-        <div class="sub-domain">Data Scientist</div>
-        <div class="sub-domain">Data Architect</div>
-        <div class="sub-domain">Business Intelligence Developer</div>
-        <div class="sub-domain">Database Administrator</div>
-        <div class="sub-domain">Big Data Engineer</div>
-        <div class="sub-domain">Statistician</div>
-        <div class="sub-domain">Operations Analyst</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('cyber-security')">Cyber Security</button>
-    <div id="cyber-security" class="sub-domains">
-        <div class="sub-domain">Penetration Tester</div>
-        <div class="sub-domain">Security Analyst</div>
-        <div class="sub-domain">Incident Responder</div>
-        <div class="sub-domain">Security Consultant</div>
-        <div class="sub-domain">Security Software Developer</div>
-        <div class="sub-domain">Cryptographer</div>
-        <div class="sub-domain">Security Architect</div>
-        <div class="sub-domain">Security Manager</div>
-        <div class="sub-domain">Forensic Analyst</div>
-        <div class="sub-domain">Vulnerability Analyst</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('ai-ml')">Artificial Intelligence & Machine Learning</button>
-    <div id="ai-ml" class="sub-domains">
-        <div class="sub-domain">AI Researcher</div>
-        <div class="sub-domain">ML Engineer</div>
-        <div class="sub-domain">NLP Engineer</div>
-        <div class="sub-domain">Computer Vision Engineer</div>
-        <div class="sub-domain">Robotics Engineer</div>
-        <div class="sub-domain">Deep Learning Engineer</div>
-        <div class="sub-domain">AI Ethicist</div>
-        <div class="sub-domain">Data Scientist</div>
-        <div class="sub-domain">AI Product Manager</div>
-        <div class="sub-domain">Research Scientist</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('networking')">Networking</button>
-    <div id="networking" class="sub-domains">
-        <div class="sub-domain">Network Engineer</div>
-        <div class="sub-domain">Network Administrator</div>
-        <div class="sub-domain">Network Architect</div>
-        <div class="sub-domain">Wireless Network Engineer</div>
-        <div class="sub-domain">Network Security Engineer</div>
-        <div class="sub-domain">VoIP Engineer</div>
-        <div class="sub-domain">Network Analyst</div>
-        <div class="sub-domain">Network Technician</div>
-        <div class="sub-domain">Network Support Specialist</div>
-        <div class="sub-domain">Network Consultant</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('cloud-computing')">Cloud Computing</button>
-    <div id="cloud-computing" class="sub-domains">
-        <div class="sub-domain">Cloud Architect</div>
-        <div class="sub-domain">Cloud Engineer</div>
-        <div class="sub-domain">Cloud Consultant</div>
-        <div class="sub-domain">Cloud Developer</div>
-        <div class="sub-domain">Cloud Systems Administrator</div>
-        <div class="sub-domain">Cloud Security Engineer</div>
-        <div class="sub-domain">Cloud Network Engineer</div>
-        <div class="sub-domain">Cloud Operations Manager</div>
-        <div class="sub-domain">Cloud Automation Engineer</div>
-        <div class="sub-domain">Cloud Product Manager</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('database-management')">Database Management</button>
-    <div id="database-management" class="sub-domains">
-        <div class="sub-domain">Database Administrator</div>
-        <div class="sub-domain">Database Developer</div>
-        <div class="sub-domain">Data Modeler</div>
-        <div class="sub-domain">Database Analyst</div>
-        <div class="sub-domain">SQL Developer</div>
-        <div class="sub-domain">Data Warehousing Specialist</div>
-        <div class="sub-domain">Database Architect</div>
-        <div class="sub-domain">Data Quality Analyst</div>
-        <div class="sub-domain">Big Data Engineer</div>
-        <div class="sub-domain">Database Manager</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('web-development')">Web Development</button>
-    <div id="web-development" class="sub-domains">
-        <div class="sub-domain">Frontend Developer</div>
-        <div class="sub-domain">Backend Developer</div>
-        <div class="sub-domain">Full Stack Developer</div>
-        <div class="sub-domain">Web Designer</div>
-        <div class="sub-domain">Webmaster</div>
-        <div class="sub-domain">UI/UX Designer</div>
-        <div class="sub-domain">Web Content Manager</div>
-        <div class="sub-domain">SEO Specialist</div>
-        <div class="sub-domain">Web Analyst</div>
-        <div class="sub-domain">Web Security Specialist</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('mobile-development')">Mobile Development</button>
-    <div id="mobile-development" class="sub-domains">
-        <div class="sub-domain">iOS Developer</div>
-        <div class="sub-domain">Android Developer</div>
-        <div class="sub-domain">Mobile UI Designer</div>
-        <div class="sub-domain">Mobile UX Designer</div>
-        <div class="sub-domain">Mobile Game Developer</div>
-        <div class="sub-domain">Mobile App Tester</div>
-        <div class="sub-domain">Cross-Platform Mobile Developer</div>
-        <div class="sub-domain">Mobile DevOps Engineer</div>
-        <div class="sub-domain">Mobile Product Manager</div>
-        <div class="sub-domain">Mobile Architect</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('devops')">DevOps</button>
-    <div id="devops" class="sub-domains">
-        <div class="sub-domain">DevOps Engineer</div>
-        <div class="sub-domain">Site Reliability Engineer</div>
-        <div class="sub-domain">Release Manager</div>
-        <div class="sub-domain">Automation Engineer</div>
-        <div class="sub-domain">Infrastructure Engineer</div>
-        <div class="sub-domain">DevOps Consultant</div>
-        <div class="sub-domain">Build Engineer</div>
-        <div class="sub-domain">Continuous Integration Engineer</div>
-        <div class="sub-domain">DevOps Architect</div>
-        <div class="sub-domain">Cloud DevOps Engineer</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('blockchain')">Blockchain</button>
-    <div id="blockchain" class="sub-domains">
-       
-
- <div class="sub-domain">Blockchain Developer</div>
-        <div class="sub-domain">Blockchain Architect</div>
-        <div class="sub-domain">Smart Contract Developer</div>
-        <div class="sub-domain">Blockchain Consultant</div>
-        <div class="sub-domain">Blockchain Project Manager</div>
-        <div class="sub-domain">Blockchain Legal Consultant</div>
-        <div class="sub-domain">Blockchain Quality Engineer</div>
-        <div class="sub-domain">Blockchain Security Expert</div>
-        <div class="sub-domain">Blockchain UX Designer</div>
-        <div class="sub-domain">Blockchain Data Scientist</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('robotics')">Robotics</button>
-    <div id="robotics" class="sub-domains">
-        <div class="sub-domain">Robotics Engineer</div>
-        <div class="sub-domain">Robotics Technician</div>
-        <div class="sub-domain">Robotics Programmer</div>
-        <div class="sub-domain">Robotics Researcher</div>
-        <div class="sub-domain">Automation Engineer</div>
-        <div class="sub-domain">Control Systems Engineer</div>
-        <div class="sub-domain">Electronics Engineer</div>
-        <div class="sub-domain">Mechatronics Engineer</div>
-        <div class="sub-domain">AI Robotics Engineer</div>
-        <div class="sub-domain">Machine Learning Robotics Engineer</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('iot')">Internet of Things (IoT)</button>
-    <div id="iot" class="sub-domains">
-        <div class="sub-domain">IoT Developer</div>
-        <div class="sub-domain">IoT Architect</div>
-        <div class="sub-domain">IoT Security Specialist</div>
-        <div class="sub-domain">IoT Product Manager</div>
-        <div class="sub-domain">IoT Data Analyst</div>
-        <div class="sub-domain">IoT System Administrator</div>
-        <div class="sub-domain">IoT Firmware Developer</div>
-        <div class="sub-domain">IoT Solutions Engineer</div>
-        <div class="sub-domain">IoT Test Engineer</div>
-        <div class="sub-domain">IoT Consultant</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('game-development')">Game Development</button>
-    <div id="game-development" class="sub-domains">
-        <div class="sub-domain">Game Developer</div>
-        <div class="sub-domain">Game Designer</div>
-        <div class="sub-domain">Game Artist</div>
-        <div class="sub-domain">Game Tester</div>
-        <div class="sub-domain">Level Designer</div>
-        <div class="sub-domain">Game Producer</div>
-        <div class="sub-domain">Sound Designer</div>
-        <div class="sub-domain">Game Animator</div>
-        <div class="sub-domain">Game Writer</div>
-        <div class="sub-domain">Game Community Manager</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('qa-testing')">Quality Assurance & Testing</button>
-    <div id="qa-testing" class="sub-domains">
-        <div class="sub-domain">QA Engineer</div>
-        <div class="sub-domain">Test Automation Engineer</div>
-        <div class="sub-domain">Manual Tester</div>
-        <div class="sub-domain">Performance Tester</div>
-        <div class="sub-domain">Security Tester</div>
-        <div class="sub-domain">Usability Tester</div>
-        <div class="sub-domain">QA Analyst</div>
-        <div class="sub-domain">Test Manager</div>
-        <div class="sub-domain">Test Architect</div>
-        <div class="sub-domain">Test Consultant</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('project-management')">Project Management</button>
-    <div id="project-management" class="sub-domains">
-        <div class="sub-domain">Project Manager</div>
-        <div class="sub-domain">Product Manager</div>
-        <div class="sub-domain">Scrum Master</div>
-        <div class="sub-domain">Agile Coach</div>
-        <div class="sub-domain">Program Manager</div>
-        <div class="sub-domain">Project Coordinator</div>
-        <div class="sub-domain">Project Scheduler</div>
-        <div class="sub-domain">Risk Manager</div>
-        <div class="sub-domain">Resource Manager</div>
-        <div class="sub-domain">Change Manager</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('technical-writing')">Technical Writing</button>
-    <div id="technical-writing" class="sub-domains">
-        <div class="sub-domain">Technical Writer</div>
-        <div class="sub-domain">Documentation Specialist</div>
-        <div class="sub-domain">Content Developer</div>
-        <div class="sub-domain">Instructional Designer</div>
-        <div class="sub-domain">Proposal Writer</div>
-        <div class="sub-domain">Grant Writer</div>
-        <div class="sub-domain">Technical Editor</div>
-        <div class="sub-domain">Information Architect</div>
-        <div class="sub-domain">API Writer</div>
-        <div class="sub-domain">Technical Content Strategist</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('system-administration')">System Administration</button>
-    <div id="system-administration" class="sub-domains">
-        <div class="sub-domain">System Administrator</div>
-        <div class="sub-domain">Network Administrator</div>
-        <div class="sub-domain">Database Administrator</div>
-        <div class="sub-domain">IT Support Specialist</div>
-        <div class="sub-domain">Cloud Administrator</div>
-        <div class="sub-domain">Systems Engineer</div>
-        <div class="sub-domain">IT Manager</div>
-        <div class="sub-domain">IT Security Specialist</div>
-        <div class="sub-domain">Help Desk Technician</div>
-        <div class="sub-domain">Linux Administrator</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('ai-research')">AI Research</button>
-    <div id="ai-research" class="sub-domains">
-        <div class="sub-domain">AI Research Scientist</div>
-        <div class="sub-domain">AI Software Engineer</div>
-        <div class="sub-domain">Machine Learning Researcher</div>
-        <div class="sub-domain">Deep Learning Researcher</div>
-        <div class="sub-domain">AI Data Scientist</div>
-        <div class="sub-domain">AI Algorithm Engineer</div>
-        <div class="sub-domain">AI Research Engineer</div>
-        <div class="sub-domain">Robotics AI Researcher</div>
-        <div class="sub-domain">AI Cognitive Scientist</div>
-        <div class="sub-domain">AI Innovation Leader</div>
-    </div>
-
-    <button class="domain-btn" onclick="toggleSubDomains('bioinformatics')">Bioinformatics</button>
-    <div id="bioinformatics" class="sub-domains">
-        <div class="sub-domain">Bioinformatics Analyst</div>
-        <div class="sub-domain">Bioinformatics Engineer</div>
-        <div class="sub-domain">Computational Biologist</div>
-        <div class="sub-domain">Genomics Data Scientist</div>
-        <div class="sub-domain">Bioinformatics Software Developer</div>
-        <div class="sub-domain">Bioinformatics Research Scientist</div>
-        <div class="sub-domain">Clinical Bioinformatics Specialist</div>
-        <div class="sub-domain">Bioinformatics Consultant</div>
-        <div class="sub-domain">Bioinformatics Database Administrator</div>
-        <div class="sub-domain">Bioinformatics Project Manager</div>
-    </div>
-
-    <script>
-        function toggleSubDomains(id) {
-            var subDomains = document.getElementById(id);
-            if (subDomains.style.display === "none" || subDomains.style.display === "") {
-                subDomains.style.display = "block";
-            } else {
-                subDomains.style.display = "none";
-            }
-        }
-    </script>
 </body>
 </html>
