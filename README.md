@@ -5,6 +5,10 @@
 
 
 
+https://github.com/user-attachments/assets/a51eb44f-94bf-47e0-a172-7a5aeabf166f
+
+
+
 
 Most of the students are falling for fake internships because of their misconceptions about how to get a job or vice versa. So we decided to make a tool named InternCrow to tackle this situation by providing HR mail address of different companies. It's super easy and you are one click away to copy those email address which will improve your job hunting and makes Interncrow - your time saving tool.
 
