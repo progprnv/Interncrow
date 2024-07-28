@@ -29,11 +29,5 @@ By presenting detailed information about various career paths, InternCrow helps 
 - **Sub-Domains**: Each main domain button reveals a list of related sub-job domains when clicked.
 - **Toggle Functionality**: Sub-domain lists are hidden by default and are shown/hidden by clicking the corresponding main domain button.
 
-## How to Use
-
-1. Open the `index.html` file in a web browser.
-2. Click on any main domain button to view its sub-domains.
-3. Click the button again to hide the sub-domains.
-
 
 MEMBERS: Pranav Jayan, Roshan Subhash
