@@ -4,9 +4,19 @@
 
 
 
-A HTML webpage that lists main domains in Computer Science Engineering (CSE). When a user clicks on a domain button, it displays a list of related sub-job domains.
 
-## WHY this tool?
+
+Most of the students are falling for fake internships because of their misconceptions about how to get a job or vice versa. So we decided to make a tool named InternCrow to tackle this situation by providing HR mail address of different companies. It's super easy and you are one click away to copy those email address which will improve your job hunting and makes Interncrow - your time saving tool.
+
+
+Website link: https://progprnv.github.io/Interncrow/
+Demo Video: https://youtu.be/yIxXoBEi5cY?si=VEE149iu7pxI7AO3
+
+## Why this tool?
+> Increase your productivity
+> Time-Saving
+> Simple & Minimalistic UI Design
+
 
 In today's competitive job market, rising unemployment and a lack of skilled workers in the industry are pressing concerns. Many students are overwhelmed by the numerous career options and unsure of which path to follow. InternCrow is designed to address this issue by providing a clear, organized overview of main domains and sub-domains within Computer Science Engineering (CSE).
 
