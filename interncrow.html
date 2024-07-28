@@ -29,9 +29,9 @@
             text-align: center;
             margin-bottom: 30px;
             color: #333;
-            font-family: 'Fira Code', monospace; /* Kali Linux terminal-like font */
-            font-size: 36px; /* Example font size */
-            font-weight: bold; /* Example font weight */
+            font-family: 'Fira Code', monospace;
+            font-size: 36px;
+            font-weight: bold;
         }
         .domain-btn {
             background-color: black;
@@ -46,8 +46,8 @@
             width: 100%;
             max-width: 300px;
             text-align: center;
-            font-family: 'Fira Code', monospace; /* Kali Linux terminal-like font */
-            font-size: 18px; /* Example font size */
+            font-family: 'Fira Code', monospace;
+            font-size: 18px;
         }
         .domain-btn:hover {
             background-color: #333;
@@ -64,18 +64,15 @@
             border-radius: 10px;
             padding-left: 10px;
             animation: slide-up 0.5s ease;
-            font-family: 'Fira Code', monospace; /* Kali Linux terminal-like font */
+            font-family: 'Fira Code', monospace;
             position: relative;
-        }
-        .sub-domain:hover .email-list {
-            display: block;
         }
         .email-list {
             display: none;
             position: absolute;
-    transform: translate(80%, -33%);
-            top: 30px;
-            left: 0;
+            transform: translate(20%, -13%);
+            top: 0;
+            left: 50%;
             background: white;
             border: 1px solid #333;
             border-radius: 5px;
@@ -115,7 +112,8 @@
         <h1>Hello World {This is Interncrow here Testing}</h1>
 
         <script>
-            // Function to toggle the visibility of sub-domains
+            let selectedSubDomain = null;
+
             function toggleSubDomains(domainId) {
                 const subDomainDiv = document.getElementById(domainId);
                 if (subDomainDiv.style.display === "none" || subDomainDiv.style.display === "") {
@@ -125,7 +123,6 @@
                 }
             }
 
-            // Function to copy email to clipboard
             function copyToClipboard(email) {
                 const el = document.createElement('textarea');
                 el.value = email;
@@ -135,47 +132,78 @@
                 document.body.removeChild(el);
                 alert('Copied: ' + email);
             }
+
+            function handleHover(event) {
+                const subDomain = event.currentTarget;
+                const emailList = subDomain.querySelector('.email-list');
+
+                if (selectedSubDomain && selectedSubDomain !== subDomain) {
+                    selectedSubDomain.querySelector('.email-list').style.display = 'none';
+                    selectedSubDomain = null;
+                }
+
+                emailList.style.display = 'block';
+            }
+
+            function handleMouseLeave(event) {
+                const subDomain = event.currentTarget;
+                const emailList = subDomain.querySelector('.email-list');
+                if (selectedSubDomain !== subDomain) {
+                    emailList.style.display = 'none';
+                }
+            }
+
+            function handleClick(event) {
+                const subDomain = event.currentTarget;
+                const emailList = subDomain.querySelector('.email-list');
+
+                if (selectedSubDomain && selectedSubDomain !== subDomain) {
+                    selectedSubDomain.querySelector('.email-list').style.display = 'none';
+                }
+
+                emailList.style.display = 'block';
+                selectedSubDomain = subDomain;
+            }
         </script>
 
-        <!-- Adding buttons for domains -->
         <button class="domain-btn" onclick="toggleSubDomains('software-dev')">Software Development</button>
         <div id="software-dev" class="sub-domains">
-            <div class="sub-domain">Frontend Developer
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Frontend Developer
                 <div class="email-list">
                     <div class="email-item">email1@example.com <button class="copy-btn" onclick="copyToClipboard('email1@example.com')">Copy</button></div>
                     <div class="email-item">email2@example.com <button class="copy-btn" onclick="copyToClipboard('email2@example.com')">Copy</button></div>
                     <div class="email-item">email3@example.com <button class="copy-btn" onclick="copyToClipboard('email3@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Backend Developer
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Backend Developer
                 <div class="email-list">
                     <div class="email-item">email4@example.com <button class="copy-btn" onclick="copyToClipboard('email4@example.com')">Copy</button></div>
                     <div class="email-item">email5@example.com <button class="copy-btn" onclick="copyToClipboard('email5@example.com')">Copy</button></div>
                     <div class="email-item">email6@example.com <button class="copy-btn" onclick="copyToClipboard('email6@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Full Stack Developer
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Full Stack Developer
                 <div class="email-list">
                     <div class="email-item">email7@example.com <button class="copy-btn" onclick="copyToClipboard('email7@example.com')">Copy</button></div>
                     <div class="email-item">email8@example.com <button class="copy-btn" onclick="copyToClipboard('email8@example.com')">Copy</button></div>
                     <div class="email-item">email9@example.com <button class="copy-btn" onclick="copyToClipboard('email9@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Mobile Developer
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Mobile Developer
                 <div class="email-list">
                     <div class="email-item">email10@example.com <button class="copy-btn" onclick="copyToClipboard('email10@example.com')">Copy</button></div>
                     <div class="email-item">email11@example.com <button class="copy-btn" onclick="copyToClipboard('email11@example.com')">Copy</button></div>
                     <div class="email-item">email12@example.com <button class="copy-btn" onclick="copyToClipboard('email12@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">DevOps Engineer
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">DevOps Engineer
                 <div class="email-list">
                     <div class="email-item">email13@example.com <button class="copy-btn" onclick="copyToClipboard('email13@example.com')">Copy</button></div>
                     <div class="email-item">email14@example.com <button class="copy-btn" onclick="copyToClipboard('email14@example.com')">Copy</button></div>
                     <div class="email-item">email15@example.com <button class="copy-btn" onclick="copyToClipboard('email15@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Software Tester
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Software Tester
                 <div class="email-list">
                     <div class="email-item">email16@example.com <button class="copy-btn" onclick="copyToClipboard('email16@example.com')">Copy</button></div>
                     <div class="email-item">email17@example.com <button class="copy-btn" onclick="copyToClipboard('email17@example.com')">Copy</button></div>
@@ -186,35 +214,35 @@
 
         <button class="domain-btn" onclick="toggleSubDomains('data-science')">Data Science</button>
         <div id="data-science" class="sub-domains">
-            <div class="sub-domain">Data Analyst
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Data Analyst
                 <div class="email-list">
                     <div class="email-item">email19@example.com <button class="copy-btn" onclick="copyToClipboard('email19@example.com')">Copy</button></div>
                     <div class="email-item">email20@example.com <button class="copy-btn" onclick="copyToClipboard('email20@example.com')">Copy</button></div>
                     <div class="email-item">email21@example.com <button class="copy-btn" onclick="copyToClipboard('email21@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Data Engineer
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Data Engineer
                 <div class="email-list">
                     <div class="email-item">email22@example.com <button class="copy-btn" onclick="copyToClipboard('email22@example.com')">Copy</button></div>
                     <div class="email-item">email23@example.com <button class="copy-btn" onclick="copyToClipboard('email23@example.com')">Copy</button></div>
                     <div class="email-item">email24@example.com <button class="copy-btn" onclick="copyToClipboard('email24@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Machine Learning Engineer
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Machine Learning Engineer
                 <div class="email-list">
                     <div class="email-item">email25@example.com <button class="copy-btn" onclick="copyToClipboard('email25@example.com')">Copy</button></div>
                     <div class="email-item">email26@example.com <button class="copy-btn" onclick="copyToClipboard('email26@example.com')">Copy</button></div>
                     <div class="email-item">email27@example.com <button class="copy-btn" onclick="copyToClipboard('email27@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Data Scientist
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Data Scientist
                 <div class="email-list">
                     <div class="email-item">email28@example.com <button class="copy-btn" onclick="copyToClipboard('email28@example.com')">Copy</button></div>
                     <div class="email-item">email29@example.com <button class="copy-btn" onclick="copyToClipboard('email29@example.com')">Copy</button></div>
                     <div class="email-item">email30@example.com <button class="copy-btn" onclick="copyToClipboard('email30@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Data Architect
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Data Architect
                 <div class="email-list">
                     <div class="email-item">email31@example.com <button class="copy-btn" onclick="copyToClipboard('email31@example.com')">Copy</button></div>
                     <div class="email-item">email32@example.com <button class="copy-btn" onclick="copyToClipboard('email32@example.com')">Copy</button></div>
@@ -225,35 +253,35 @@
 
         <button class="domain-btn" onclick="toggleSubDomains('web-development')">Web Development</button>
         <div id="web-development" class="sub-domains">
-            <div class="sub-domain">Frontend Developer
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Frontend Developer
                 <div class="email-list">
                     <div class="email-item">email34@example.com <button class="copy-btn" onclick="copyToClipboard('email34@example.com')">Copy</button></div>
                     <div class="email-item">email35@example.com <button class="copy-btn" onclick="copyToClipboard('email35@example.com')">Copy</button></div>
                     <div class="email-item">email36@example.com <button class="copy-btn" onclick="copyToClipboard('email36@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Backend Developer
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Backend Developer
                 <div class="email-list">
                     <div class="email-item">email37@example.com <button class="copy-btn" onclick="copyToClipboard('email37@example.com')">Copy</button></div>
                     <div class="email-item">email38@example.com <button class="copy-btn" onclick="copyToClipboard('email38@example.com')">Copy</button></div>
                     <div class="email-item">email39@example.com <button class="copy-btn" onclick="copyToClipboard('email39@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Full Stack Developer
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Full Stack Developer
                 <div class="email-list">
                     <div class="email-item">email40@example.com <button class="copy-btn" onclick="copyToClipboard('email40@example.com')">Copy</button></div>
                     <div class="email-item">email41@example.com <button class="copy-btn" onclick="copyToClipboard('email41@example.com')">Copy</button></div>
                     <div class="email-item">email42@example.com <button class="copy-btn" onclick="copyToClipboard('email42@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Web Designer
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Web Designer
                 <div class="email-list">
                     <div class="email-item">email43@example.com <button class="copy-btn" onclick="copyToClipboard('email43@example.com')">Copy</button></div>
                     <div class="email-item">email44@example.com <button class="copy-btn" onclick="copyToClipboard('email44@example.com')">Copy</button></div>
                     <div class="email-item">email45@example.com <button class="copy-btn" onclick="copyToClipboard('email45@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">UI/UX Designer
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">UI/UX Designer
                 <div class="email-list">
                     <div class="email-item">email46@example.com <button class="copy-btn" onclick="copyToClipboard('email46@example.com')">Copy</button></div>
                     <div class="email-item">email47@example.com <button class="copy-btn" onclick="copyToClipboard('email47@example.com')">Copy</button></div>
@@ -264,35 +292,35 @@
 
         <button class="domain-btn" onclick="toggleSubDomains('cyber-security')">Cyber Security</button>
         <div id="cyber-security" class="sub-domains">
-            <div class="sub-domain">Penetration Tester
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Penetration Tester
                 <div class="email-list">
                     <div class="email-item">email49@example.com <button class="copy-btn" onclick="copyToClipboard('email49@example.com')">Copy</button></div>
                     <div class="email-item">email50@example.com <button class="copy-btn" onclick="copyToClipboard('email50@example.com')">Copy</button></div>
                     <div class="email-item">email51@example.com <button class="copy-btn" onclick="copyToClipboard('email51@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Security Analyst
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Security Analyst
                 <div class="email-list">
                     <div class="email-item">email52@example.com <button class="copy-btn" onclick="copyToClipboard('email52@example.com')">Copy</button></div>
                     <div class="email-item">email53@example.com <button class="copy-btn" onclick="copyToClipboard('email53@example.com')">Copy</button></div>
                     <div class="email-item">email54@example.com <button class="copy-btn" onclick="copyToClipboard('email54@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Incident Responder
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Incident Responder
                 <div class="email-list">
                     <div class="email-item">email55@example.com <button class="copy-btn" onclick="copyToClipboard('email55@example.com')">Copy</button></div>
                     <div class="email-item">email56@example.com <button class="copy-btn" onclick="copyToClipboard('email56@example.com')">Copy</button></div>
                     <div class="email-item">email57@example.com <button class="copy-btn" onclick="copyToClipboard('email57@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Cryptographer
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Cryptographer
                 <div class="email-list">
                     <div class="email-item">email58@example.com <button class="copy-btn" onclick="copyToClipboard('email58@example.com')">Copy</button></div>
                     <div class="email-item">email59@example.com <button class="copy-btn" onclick="copyToClipboard('email59@example.com')">Copy</button></div>
                     <div class="email-item">email60@example.com <button class="copy-btn" onclick="copyToClipboard('email60@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Security Architect
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Security Architect
                 <div class="email-list">
                     <div class="email-item">email61@example.com <button class="copy-btn" onclick="copyToClipboard('email61@example.com')">Copy</button></div>
                     <div class="email-item">email62@example.com <button class="copy-btn" onclick="copyToClipboard('email62@example.com')">Copy</button></div>
@@ -303,35 +331,35 @@
 
         <button class="domain-btn" onclick="toggleSubDomains('ai-ml')">Artificial Intelligence & Machine Learning</button>
         <div id="ai-ml" class="sub-domains">
-            <div class="sub-domain">AI Researcher
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">AI Researcher
                 <div class="email-list">
                     <div class="email-item">email64@example.com <button class="copy-btn" onclick="copyToClipboard('email64@example.com')">Copy</button></div>
                     <div class="email-item">email65@example.com <button class="copy-btn" onclick="copyToClipboard('email65@example.com')">Copy</button></div>
                     <div class="email-item">email66@example.com <button class="copy-btn" onclick="copyToClipboard('email66@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">ML Engineer
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">ML Engineer
                 <div class="email-list">
                     <div class="email-item">email67@example.com <button class="copy-btn" onclick="copyToClipboard('email67@example.com')">Copy</button></div>
                     <div class="email-item">email68@example.com <button class="copy-btn" onclick="copyToClipboard('email68@example.com')">Copy</button></div>
                     <div class="email-item">email69@example.com <button class="copy-btn" onclick="copyToClipboard('email69@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Robotics Engineer
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Robotics Engineer
                 <div class="email-list">
                     <div class="email-item">email70@example.com <button class="copy-btn" onclick="copyToClipboard('email70@example.com')">Copy</button></div>
                     <div class="email-item">email71@example.com <button class="copy-btn" onclick="copyToClipboard('email71@example.com')">Copy</button></div>
                     <div class="email-item">email72@example.com <button class="copy-btn" onclick="copyToClipboard('email72@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Deep Learning Engineer
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Deep Learning Engineer
                 <div class="email-list">
                     <div class="email-item">email73@example.com <button class="copy-btn" onclick="copyToClipboard('email73@example.com')">Copy</button></div>
                     <div class="email-item">email74@example.com <button class="copy-btn" onclick="copyToClipboard('email74@example.com')">Copy</button></div>
                     <div class="email-item">email75@example.com <button class="copy-btn" onclick="copyToClipboard('email75@example.com')">Copy</button></div>
                 </div>
             </div>
-            <div class="sub-domain">Data Scientist
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Data Scientist
                 <div class="email-list">
                     <div class="email-item">email76@example.com <button class="copy-btn" onclick="copyToClipboard('email76@example.com')">Copy</button></div>
                     <div class="email-item">email77@example.com <button class="copy-btn" onclick="copyToClipboard('email77@example.com')">Copy</button></div>
