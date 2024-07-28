@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intencrow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Fira Code', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: flex-start;
+            position: relative;
+        }
+        .content {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 40%;
+            transform: translateY(-40%);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-family: 'Fira Code', monospace;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .domain-btn {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.2), inset -2px -2px 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            font-family: 'Fira Code', monospace;
+            font-size: 18px;
+        }
+        .domain-btn:hover {
+            background-color: #333;
+        }
+        .sub-domains {
+            display: none;
+            padding-left: 20px;
+            width: 100%;
+            max-width: 300px;
+        }
+        .sub-domain {
+            margin-bottom: 10px;
+            border-left: 2px solid black;
+            border-radius: 10px;
+            padding-left: 10px;
+            animation: slide-up 0.5s ease;
+            font-family: 'Fira Code', monospace;
+            position: relative;
+        }
+        .email-list {
+            display: none;
+            position: absolute;
+            transform: translate(20%, -13%);
+            top: 0;
+            left: 50%;
+            background: white;
+            border: 1px solid #333;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+        .email-item {
+            margin-bottom: 5px;
+        }
+        .copy-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        .copy-btn:hover {
+            background-color: #555;
+        }
+        @keyframes slide-up {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .logo {
+            width: 543px;
+            height: 164px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <img src="images/logo.jpeg" alt="Interncrow Logo" class="logo">
+        <h3>Your Minimalistic Job Finder Tool</h3>
+
+        <script>
+            let selectedSubDomain = null;
+
+            function toggleSubDomains(domainId) {
+                const subDomainDiv = document.getElementById(domainId);
+                if (subDomainDiv.style.display === "none" || subDomainDiv.style.display === "") {
+                    subDomainDiv.style.display = "block";
+                } else {
+                    subDomainDiv.style.display = "none";
+                }
+            }
+
+            function copyToClipboard(email) {
+                const el = document.createElement('textarea');
+                el.value = email;
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand('copy');
+                document.body.removeChild(el);
+                alert('Copied: ' + email);
+            }
+
+            function handleHover(event) {
+                const subDomain = event.currentTarget;
+                const emailList = subDomain.querySelector('.email-list');
+
+                if (selectedSubDomain && selectedSubDomain !== subDomain) {
+                    selectedSubDomain.querySelector('.email-list').style.display = 'none';
+                    selectedSubDomain = null;
+                }
+
+                emailList.style.display = 'block';
+            }
+
+            function handleMouseLeave(event) {
+                const subDomain = event.currentTarget;
+                const emailList = subDomain.querySelector('.email-list');
+                if (selectedSubDomain !== subDomain) {
+                    emailList.style.display = 'none';
+                }
+            }
+
+            function handleClick(event) {
+                const subDomain = event.currentTarget;
+                const emailList = subDomain.querySelector('.email-list');
+
+                if (selectedSubDomain && selectedSubDomain !== subDomain) {
+                    selectedSubDomain.querySelector('.email-list').style.display = 'none';
+                }
+
+                emailList.style.display = 'block';
+                selectedSubDomain = subDomain;
+            }
+        </script>
+
+        <button class="domain-btn" onclick="toggleSubDomains('software-dev')">Software Development</button>
+        <div id="software-dev" class="sub-domains">
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Frontend Developer
+                <div class="email-list">
+                    <div class="email-item">rachis@packtpub.com <button class="copy-btn" onclick="copyToClipboard('rachis@packtpub.com')">Copy</button></div>
+                    <div class="email-item">Pramod.n@marlabs.com <button class="copy-btn" onclick="copyToClipboard('Pramod.n@marlabs.com')">Copy</button></div>
+                    <div class="email-item">pratibha@infobase.in <button class="copy-btn" onclick="copyToClipboard('pratibha@infobase.in')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Backend Developer
+                <div class="email-list">
+                    <div class="email-item">priya.anand@avl.com <button class="copy-btn" onclick="copyToClipboard('priya.anand@avl.com')">Copy</button></div>
+                    <div class="email-item">priya@tspl.com <button class="copy-btn" onclick="copyToClipboard('priya@tspl.com')">Copy</button></div>
+                    <div class="email-item">priyankak@interactcrm.com <button class="copy-btn" onclick="copyToClipboard('priyankak@interactcrm.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Full Stack Developer
+                <div class="email-list">
+                    <div class="email-item">Prkumar8@in.ibm.com <button class="copy-btn" onclick="copyToClipboard('Prkumar8@in.ibm.com')">Copy</button></div>
+                    <div class="email-item">projects@ascendindia.com <button class="copy-btn" onclick="copyToClipboard('projects@ascendindia.com')">Copy</button></div>
+                    <div class="email-item">ps.careers@philips.com <button class="copy-btn" onclick="copyToClipboard('ps.careers@philips.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Mobile Developer
+                <div class="email-list">
+                    <div class="email-item">Psofreshers@subexazure.com <button class="copy-btn" onclick="copyToClipboard('Psofreshers@subexazure.com')">Copy</button></div>
+                    <div class="email-item">Puja.raj@mafoi.com <button class="copy-btn" onclick="copyToClipboard('Puja.raj@mafoi.com')">Copy</button></div>
+                    <div class="email-item">qa@chakrainteractive.com <button class="copy-btn" onclick="copyToClipboard('qa@chakrainteractive.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">DevOps Engineer
+                <div class="email-list">
+                    <div class="email-item">ragarwal@informatica.com <button class="copy-btn" onclick="copyToClipboard('ragarwal@informatica.com')">Copy</button></div>
+                    <div class="email-item">rajbir@techraysolutions.com <button class="copy-btn" onclick="copyToClipboard('rajbir@techraysolutions.com')">Copy</button></div>
+                    <div class="email-item">ramakrishna.g@atiric.com <button class="copy-btn" onclick="copyToClipboard('ramakrishna.g@atiric.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Software Tester
+                <div class="email-list">
+                    <div class="email-item">Rameshwar.Singh@hp.com <button class="copy-btn" onclick="copyToClipboard('Rameshwar.Singh@hp.com')">Copy</button></div>
+                    <div class="email-item">ramvivek21@yahoo.com <button class="copy-btn" onclick="copyToClipboard('ramvivek21@yahoo.com')">Copy</button></div>
+                    <div class="email-item">rashi.arora@igate.com <button class="copy-btn" onclick="copyToClipboard('rashi.arora@igate.com')">Copy</button></div>
+                </div>
+            </div>
+        </div>
+
+        <button class="domain-btn" onclick="toggleSubDomains('data-science')">Data Science</button>
+        <div id="data-science" class="sub-domains">
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Data Analyst
+                <div class="email-list">
+                    <div class="email-item">rec_mumbai@yahoo.com <button class="copy-btn" onclick="copyToClipboard('rec_mumbai@yahoo.com')">Copy</button></div>
+                    <div class="email-item">recruit@eds.com <button class="copy-btn" onclick="copyToClipboard('recruit@eds.com')">Copy</button></div>
+                    <div class="email-item">recruit@phmhelth.com <button class="copy-btn" onclick="copyToClipboard('recruit@phmhelth.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Data Engineer
+                <div class="email-list">
+                    <div class="email-item">recruiting@prapansol.com <button class="copy-btn" onclick="copyToClipboard('recruiting@prapansol.com')">Copy</button></div>
+                    <div class="email-item">recruiting@vistasoftindia.com <button class="copy-btn" onclick="copyToClipboard('recruiting@vistasoftindia.com')">Copy</button></div>
+                    <div class="email-item">recruitment_fresher@inbox.com <button class="copy-btn" onclick="copyToClipboard('recruitment_fresher@inbox.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Machine Learning Engineer
+                <div class="email-list">
+                    <div class="email-item">recruitment_nipuna@nipunaservices.com <button class="copy-btn" onclick="copyToClipboard('recruitment_nipuna@nipunaservices.com')">Copy</button></div>
+                    <div class="email-item">recruitment.Chennai@nokia.com <button class="copy-btn" onclick="copyToClipboard('recruitment.Chennai@nokia.com')">Copy</button></div>
+                    <div class="email-item">recruitment@goelganga.com <button class="copy-btn" onclick="copyToClipboard('recruitment@goelganga.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Data Scientist
+                <div class="email-list">
+                    <div class="email-item">recruitment@safran.in <button class="copy-btn" onclick="copyToClipboard('recruitment@safran.in')">Copy</button></div>
+                    <div class="email-item">refual@india.hp.com <button class="copy-btn" onclick="copyToClipboard('refual@india.hp.com')">Copy</button></div>
+                    <div class="email-item">register@bsi.co.in <button class="copy-btn" onclick="copyToClipboard('register@bsi.co.in')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Data Architect
+                <div class="email-list">
+                    <div class="email-item">reji@maaguns.com <button class="copy-btn" onclick="copyToClipboard('reji@maaguns.com')">Copy</button></div>
+                    <div class="email-item">Rekhaaranha@gmail.com <button class="copy-btn" onclick="copyToClipboard('Rekhaaranha@gmail.com')">Copy</button></div>
+                    <div class="email-item">resume@consecoindia.com <button class="copy-btn" onclick="copyToClipboard('resume@consecoindia.com')">Copy</button></div>
+                </div>
+            </div>
+        </div>
+
+        <button class="domain-btn" onclick="toggleSubDomains('web-development')">Web Development</button>
+        <div id="web-development" class="sub-domains">
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Frontend Developer
+                <div class="email-list">
+                    <div class="email-item">resume@lohitsagowra.com <button class="copy-btn" onclick="copyToClipboard('resume@lohitsagowra.com')">Copy</button></div>
+                    <div class="email-item">resume@multitech.co.in <button class="copy-btn" onclick="copyToClipboard('resume@multitech.co.in')">Copy</button></div>
+                    <div class="email-item">resume@thekshanplacements.com <button class="copy-btn" onclick="copyToClipboard('resume@thekshanplacements.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Backend Developer
+                <div class="email-list">
+                    <div class="email-item">resumeasap.infodesk@jataayusoft.com <button class="copy-btn" onclick="copyToClipboard('resumeasap.infodesk@jataayusoft.com')">Copy</button></div>
+                    <div class="email-item">resumeindia@informatica.com <button class="copy-btn" onclick="copyToClipboard('resumeindia@informatica.com')">Copy</button></div>
+                    <div class="email-item">resumes.bangalore@siemens.com <button class="copy-btn" onclick="copyToClipboard('resumes.bangalore@siemens.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Full Stack Developer
+                <div class="email-list">
+                    <div class="email-item">resumesindia@firstam.com <button class="copy-btn" onclick="copyToClipboard('resumesindia@firstam.com')">Copy</button></div>
+                    <div class="email-item">Resumesubmition@novell.com <button class="copy-btn" onclick="copyToClipboard('Resumesubmition@novell.com')">Copy</button></div>
+                    <div class="email-item">riya.freshers@rediffmail.com <button class="copy-btn" onclick="copyToClipboard('riya.freshers@rediffmail.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Web Designer
+                <div class="email-list">
+                    <div class="email-item">roja.J@ge.com <button class="copy-btn" onclick="copyToClipboard('roja.J@ge.com')">Copy</button></div>
+                    <div class="email-item">rs_placementconsultants@yahoo.com <button class="copy-btn" onclick="copyToClipboard('rs_placementconsultants@yahoo.com')">Copy</button></div>
+                    <div class="email-item">ruchir@ering-cad.com <button class="copy-btn" onclick="copyToClipboard('ruchir@ering-cad.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">UI/UX Designer
+                <div class="email-list">
+                    <div class="email-item">sai_prashanth@dell.com <button class="copy-btn" onclick="copyToClipboard('sai_prashanth@dell.com')">Copy</button></div>
+                    <div class="email-item">samarpita.banerjee@wipro.com <button class="copy-btn" onclick="copyToClipboard('samarpita.banerjee@wipro.com')">Copy</button></div>
+                    <div class="email-item">sameer.panda@intecbilling.com <button class="copy-btn" onclick="copyToClipboard('sameer.panda@intecbilling.com')">Copy</button></div>
+                </div>
+            </div>
+        </div>
+
+        <button class="domain-btn" onclick="toggleSubDomains('cyber-security')">Cyber Security</button>
+        <div id="cyber-security" class="sub-domains">
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Penetration Tester
+                <div class="email-list">
+                    <div class="email-item">sandhya.raghavan@3i-infotech.com <button class="copy-btn" onclick="copyToClipboard('sandhya.raghavan@3i-infotech.com')">Copy</button></div>
+                    <div class="email-item">saritha@vmoksha.com <button class="copy-btn" onclick="copyToClipboard('saritha@vmoksha.com')">Copy</button></div>
+                    <div class="email-item">sgi@ggheewala.com <button class="copy-btn" onclick="copyToClipboard('sgi@ggheewala.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Security Analyst
+                <div class="email-list">
+                    <div class="email-item">shalu@ewaretechnologies.com <button class="copy-btn" onclick="copyToClipboard('shalu@ewaretechnologies.com')">Copy</button></div>
+                    <div class="email-item">shamshersingh2k@rediffmail.com <button class="copy-btn" onclick="copyToClipboard('shamshersingh2k@rediffmail.com')">Copy</button></div>
+                    <div class="email-item">shapethefuture.in@siemens.com <button class="copy-btn" onclick="copyToClipboard('shapethefuture.in@siemens.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Incident Responder
+                <div class="email-list">
+                    <div class="email-item">sheela.venkatesh@sap.com <button class="copy-btn" onclick="copyToClipboard('sheela.venkatesh@sap.com')">Copy</button></div>
+                    <div class="email-item">sheik.ahmed@in.tesco.com <button class="copy-btn" onclick="copyToClipboard('sheik.ahmed@in.tesco.com')">Copy</button></div>
+                    <div class="email-item">shikha.arora@iapinfotech.com <button class="copy-btn" onclick="copyToClipboard('shikha.arora@iapinfotech.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Cryptographer
+                <div class="email-list">
+                    <div class="email-item">shish.juneja@macfee.com <button class="copy-btn" onclick="copyToClipboard('shish.juneja@macfee.com')">Copy</button></div>
+                    <div class="email-item">shivam_swaroop@yahoo.com <button class="copy-btn" onclick="copyToClipboard('shivam_swaroop@yahoo.com')">Copy</button></div>
+                    <div class="email-item">shivani@quantum-bso.com <button class="copy-btn" onclick="copyToClipboard('shivani@quantum-bso.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Security Architect
+                <div class="email-list">
+                    <div class="email-item">shruti.sharan@avl.com <button class="copy-btn" onclick="copyToClipboard('shruti.sharan@avl.com')">Copy</button></div>
+                    <div class="email-item">sivaranjan@in.ibm.com <button class="copy-btn" onclick="copyToClipboard('sivaranjan@in.ibm.com')">Copy</button></div>
+                    <div class="email-item">solutions@edcindia.com <button class="copy-btn" onclick="copyToClipboard('solutions@edcindia.com')">Copy</button></div>
+                </div>
+            </div>
+        </div>
+
+        <button class="domain-btn" onclick="toggleSubDomains('ai-ml')">Artificial Intelligence & Machine Learning</button>
+        <div id="ai-ml" class="sub-domains">
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">AI Researcher
+                <div class="email-list">
+                    <div class="email-item">SrinivasaRao.B@mphasis.com <button class="copy-btn" onclick="copyToClipboard('SrinivasaRao.B@mphasis.com')">Copy</button></div>
+                    <div class="email-item">srividya_m@trigent.com <button class="copy-btn" onclick="copyToClipboard('srividya_m@trigent.com')">Copy</button></div>
+                    <div class="email-item">ssachinkumar@hcl.in <button class="copy-btn" onclick="copyToClipboard('ssachinkumar@hcl.in')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">ML Engineer
+                <div class="email-list">
+                    <div class="email-item">steve@sysnetts.com <button class="copy-btn" onclick="copyToClipboard('steve@sysnetts.com')">Copy</button></div>
+                    <div class="email-item">su_mehra@rediffmail.com <button class="copy-btn" onclick="copyToClipboard('su_mehra@rediffmail.com')">Copy</button></div>
+                    <div class="email-item">Sujukh.banerjee@mafoi.com <button class="copy-btn" onclick="copyToClipboard('Sujukh.banerjee@mafoi.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Robotics Engineer
+                <div class="email-list">
+                    <div class="email-item">supportteam@icsi.net <button class="copy-btn" onclick="copyToClipboard('supportteam@icsi.net')">Copy</button></div>
+                    <div class="email-item">sushma.jyothi@supportsoft.com <button class="copy-btn" onclick="copyToClipboard('sushma.jyothi@supportsoft.com')">Copy</button></div>
+                    <div class="email-item">syamala.j@inetframe.com <button class="copy-btn" onclick="copyToClipboard('syamala.j@inetframe.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Deep Learning Engineer
+                <div class="email-list">
+                    <div class="email-item">sylvie@sarayusoftech.com <button class="copy-btn" onclick="copyToClipboard('sylvie@sarayusoftech.com')">Copy</button></div>
+                    <div class="email-item">LIMITED.Ramya.Hg@in.bosch.com <button class="copy-btn" onclick="copyToClipboard('LIMITED.Ramya.Hg@in.bosch.com')">Copy</button></div>
+                    <div class="email-item">lingesh_kumar@dell.com <button class="copy-btn" onclick="copyToClipboard('lingesh_kumar@dell.com')">Copy</button></div>
+                </div>
+            </div>
+            <div class="sub-domain" onmouseover="handleHover(event)" onmouseleave="handleMouseLeave(event)" onclick="handleClick(event)">Data Scientist
+                <div class="email-list">
+                    <div class="email-item">lipsan@triumphsys.com <button class="copy-btn" onclick="copyToClipboard('lipsan@triumphsys.com')">Copy</button></div>
+                    <div class="email-item">liz@itti.co.in <button class="copy-btn" onclick="copyToClipboard('liz@itti.co.in')">Copy</button></div>
+                    <div class="email-item">maagschrdjob@maersk.com <button class="copy-btn" onclick="copyToClipboard('maagschrdjob@maersk.com')">Copy</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
