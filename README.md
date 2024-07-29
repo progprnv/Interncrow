@@ -27,6 +27,11 @@ By presenting detailed information about various career paths, InternCrow helps 
 https://github.com/user-attachments/assets/1fb25f42-6eb6-4387-8464-c1126bada22a
 
 
+## Privacy and Liability:
+The email IDs can be managed and updated weekly by admin ensuring for the purpose of good will.
+We scrap email IDs of HR that are intended to made public by the company or at the time of job opening.
+
+
 
 ## Features
 
