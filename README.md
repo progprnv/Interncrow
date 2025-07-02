@@ -40,4 +40,4 @@ We scrap email IDs of HR that are intended to made public by the company or at t
 - **Toggle Functionality**: Sub-domain lists are hidden by default and are shown/hidden by clicking the corresponding main domain button.
 
 
-MEMBERS: Pranav Jayan, Roshan Subhash
+MEMBERS: Pranav Jayan, Roshan Subhash, Omar Abdullah ka
